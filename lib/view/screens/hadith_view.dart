@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hadith/controller/db/data.dart';
 import 'package:hadith/controller/utils/app_images/assets.dart';
+import 'package:hadith/controller/utils/app_routes.dart';
 import 'package:hadith/controller/utils/constants/colors.dart';
 import 'package:hadith/controller/utils/constants/texts.dart';
 import 'package:hadith/model/hadith_model.dart';
+import 'package:hadith/view/screens/hadith_details.dart';
 import 'package:hadith/view/widgets/custom_ayah.dart';
 
 class HadithView extends StatefulWidget {
@@ -87,9 +89,20 @@ class _HadithViewState extends State<HadithView> {
                             itemCount: Data.hadithList.length,
                             itemBuilder: (context, index) {
                               Hadith hadith = snapshot.data![index];
-                              return CustomAyah(
-                                hadithKey: hadith.key.toString(),
-                                hadithName: hadith.name.toString(),
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return HadithDetails(
+                                        hadith: hadith,
+                                      );
+                                    },
+                                  ));
+                                },
+                                child: CustomAyah(
+                                  hadithKey: hadith.key.toString(),
+                                  hadithName: hadith.name.toString(),
+                                ),
                               );
                             },
                           );

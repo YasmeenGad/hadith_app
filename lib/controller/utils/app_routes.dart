@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hadith/view/screens/audio_hadith_view.dart';
 import 'package:hadith/view/screens/hadith_view.dart';
+import 'package:hadith/view/screens/hadith_details.dart';
 import 'package:hadith/view/screens/home_view.dart';
 import 'package:hadith/view/screens/splash_view.dart';
 
@@ -9,6 +10,7 @@ class RoutesApp {
   static const String homeView = '/homeView';
   static const String hadithView = '/hadithView';
   static const String audioHadithView = '/audioHadithView';
+  static const String hadithDetails = '/hadithDetails';
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
@@ -33,6 +35,12 @@ class RoutesApp {
         path: audioHadithView,
         builder: (BuildContext context, GoRouterState state) {
           return const AudioHadithView();
+        },
+      ),
+      GoRoute(
+        path: hadithDetails,
+        builder: (BuildContext context, GoRouterState state) {
+          return const HadithDetails();
         },
       ),
     ],
