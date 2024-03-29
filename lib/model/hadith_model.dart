@@ -1,20 +1,20 @@
 class Hadith {
-  final String key;
-  final String name;
-  final String explaination;
-  final String text;
-  final String translation;
-  final String audio;
+  final String? key;
+  final String? name;
+  final String? explaination;
+  final String? text;
+  final String? translation;
+  final String? audio;
 
-  Hadith({required this.key,
-    required this.name,
-    required this.explaination,
-    required this.text,
-    required this.translation,
-    required this.audio});
+  Hadith(
+      {this.key,
+      this.name,
+      this.explaination,
+      this.text,
+      this.translation,
+      this.audio});
 
-  Map<String, dynamic> toMap() =>
-      {
+  Map<String, dynamic> toMap() => {
         "key": key,
         "name": name,
         "text": text,
@@ -23,8 +23,7 @@ class Hadith {
         "audio": audio,
       };
 
-  factory Hadith.fromMap(Map<String, dynamic> json) =>
-      new Hadith(
+  factory Hadith.fromMap(Map<String, dynamic> json) => new Hadith(
         key: json["key"],
         name: json["name"],
         text: json["text"],
