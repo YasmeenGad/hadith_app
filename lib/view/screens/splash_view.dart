@@ -1,13 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hadith/controller/utils/app_images/assets.dart';
 import 'package:hadith/controller/utils/app_routes.dart';
-import 'package:hadith/controller/utils/colors.dart';
+import 'package:hadith/controller/utils/constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hadith/controller/utils/texts.dart';
+import 'package:hadith/controller/utils/constants/texts.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
