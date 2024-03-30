@@ -5,6 +5,14 @@ class Assets {
   /// assets/svg/background.svg
   static const String svgBackground = "assets/svg/background.svg";
 
+  /// Assets for svgFav
+  /// assets/svg/fav.svg
+  static const String svgFav = "assets/svg/fav.svg";
+
+  /// Assets for svgForward
+  /// assets/svg/forward.png
+  static const String svgForward = "assets/svg/forward.png";
+
   /// Assets for svgGrey
   /// assets/svg/grey.svg
   static const String svgGrey = "assets/svg/grey.svg";
@@ -16,6 +24,10 @@ class Assets {
   /// Assets for svgImg
   /// assets/svg/img.png
   static const String svgImg = "assets/svg/img.png";
+
+  /// Assets for svgImgAudio
+  /// assets/svg/imgAudio.svg
+  static const String svgImgAudio = "assets/svg/imgAudio.svg";
 
   /// Assets for svgIslamic
   /// assets/svg/islamic.svg
@@ -37,6 +49,10 @@ class Assets {
   /// assets/svg/quran.png
   static const String svgQuran = "assets/svg/quran.png";
 
+  /// Assets for svgRewind
+  /// assets/svg/rewind.png
+  static const String svgRewind = "assets/svg/rewind.png";
+
   /// Assets for svgSaveInstagram
   /// assets/svg/save-instagram.png
   static const String svgSaveInstagram = "assets/svg/save-instagram.png";
@@ -57,4 +73,3 @@ class Assets {
   /// assets/svg/yellowlogo.svg
   static const String svgYellowlogo = "assets/svg/yellowlogo.svg";
 }
-

@@ -14,7 +14,12 @@ class HadithContentViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: <Widget>[HadithContentView(data: data)],
+        slivers: <Widget>[
+          HadithContentView(
+            data: data,
+            hadith: hadith,
+          )
+        ],
       ),
     );
   }

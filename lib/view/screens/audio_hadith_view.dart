@@ -7,6 +7,7 @@ import 'package:hadith/controller/db/data.dart';
 import 'package:hadith/controller/utils/app_images/assets.dart';
 import 'package:hadith/controller/utils/constants/colors.dart';
 import 'package:hadith/model/hadith_model.dart';
+import 'package:hadith/view/screens/audio_view.dart';
 import 'package:hadith/view/widgets/custom_ayah.dart';
 
 class AudioHadithView extends StatefulWidget {
@@ -97,9 +98,19 @@ class _AudioHadithViewState extends State<AudioHadithView> {
                             itemCount: Data.hadithList.length,
                             itemBuilder: (context, index) {
                               Hadith hadith = snapshot.data![index];
-                              return CustomAyah(
-                                hadithKey: hadith.key.toString(),
-                                hadithName: hadith.name.toString(),
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return AudioView(
+                                          hadith: hadith, path: hadith.audio);
+                                    },
+                                  ));
+                                },
+                                child: CustomAyah(
+                                  hadithKey: hadith.key.toString(),
+                                  hadithName: hadith.name.toString(),
+                                ),
                               );
                             },
                           );

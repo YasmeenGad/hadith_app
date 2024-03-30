@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hadith/controller/utils/app_images/assets.dart';
 import 'package:hadith/controller/utils/constants/colors.dart';
 import 'package:hadith/model/hadith_model.dart';
+import 'package:hadith/view/screens/audio_view.dart';
 import 'package:hadith/view/screens/hadith_content_view_body.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -39,6 +42,11 @@ class _HadithDetailsState extends State<HadithDetails> {
       return HadithContentViewBody(
         hadith: widget.hadith!,
         data: text,
+      );
+    } else {
+      return AudioView(
+        hadith: widget.hadith!,
+        path: widget.hadith!.audio!,
       );
     }
   }
@@ -130,7 +138,10 @@ class _HadithDetailsState extends State<HadithDetails> {
         color: ColorApp.primary,
       ),
       body: Stack(
-        children: [getWedjet(bol)],
+        children: [
+          SvgPicture.asset(Assets.svgBackground),
+          getWedjet(bol),
+        ],
       ),
     );
   }

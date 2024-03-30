@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hadith/controller/db/data.dart';
 import 'package:hadith/controller/utils/app_images/assets.dart';
-import 'package:hadith/controller/utils/app_routes.dart';
 import 'package:hadith/controller/utils/constants/colors.dart';
-import 'package:hadith/controller/utils/constants/texts.dart';
 import 'package:hadith/model/hadith_model.dart';
 import 'package:hadith/view/screens/hadith_details.dart';
 import 'package:hadith/view/widgets/custom_ayah.dart';
@@ -27,7 +26,7 @@ class _HadithViewState extends State<HadithView> {
           Expanded(
               flex: 1,
               child: Padding(
-                padding: EdgeInsets.only(top: 30.h, right: 5.w),
+                padding: EdgeInsets.only(top: 30.h),
                 child: Stack(
                   children: [
                     SvgPicture.asset(
@@ -52,12 +51,22 @@ class _HadithViewState extends State<HadithView> {
                                 icon: const Icon(Icons.arrow_forward_ios))
                           ],
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            TextApp.topHomeScreen,
-                            TextApp.headerHomeScreen,
-                          ],
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 20.w),
+                            child: Text(
+                              "ألأحاديث الاربعون",
+                              style: GoogleFonts.tajawal(
+                                color: ColorApp.primary,
+                                fontSize: 25.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                         )
                       ],
                     )
