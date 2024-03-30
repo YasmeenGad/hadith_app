@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hadith/controller/SaveHadithCubit/save_hadith_cubit.dart';
 import 'package:hadith/controller/functions/get_hadith_texts.dart';
 import 'package:hadith/controller/utils/app_images/assets.dart';
 import 'package:hadith/controller/utils/constants/colors.dart';
@@ -19,6 +21,7 @@ class HadithContentView extends StatefulWidget {
 }
 
 class _HadithContentViewState extends State<HadithContentView> {
+  bool isClicked = false;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -61,7 +64,31 @@ class _HadithContentViewState extends State<HadithContentView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(Assets.svgFav),
+                              InkWell(
+                                  onTap: () {
+                                    isClicked = true;
+                                    setState(() {});
+                                    BlocProvider.of<SaveHadith>(context)
+                                        .saveHadith(Hadith(
+                                            key: widget.hadith.key,
+                                            audio: widget.hadith.audio,
+                                            explaination:
+                                                widget.hadith.explaination,
+                                            name: widget.hadith.name,
+                                            text: widget.hadith.text,
+                                            translation:
+                                                widget.hadith.translation));
+                                    // ScaffoldMessenger.of(context).showSnackBar(
+                                    //     SnackBar(
+                                    //         content: Text("تم حفظ الحديث")));
+                                  },
+                                  child: isClicked
+                                      ? Icon(
+                                          Icons.favorite,
+                                          color: ColorApp.darkPrimary,
+                                          size: 40.sp,
+                                        )
+                                      : SvgPicture.asset(Assets.svgFav)),
                               Text(
                                 "${widget.hadith.name}",
                                 style: GoogleFonts.tajawal(

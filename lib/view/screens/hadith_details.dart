@@ -79,7 +79,6 @@ class _HadithDetailsState extends State<HadithDetails> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                //update the bottom app bar view each time an item is clicked
                 onPressed: () {
                   bol = true;
                   updateTabSelection(0, widget.hadith!.text!);
@@ -87,7 +86,6 @@ class _HadithDetailsState extends State<HadithDetails> {
                 iconSize: 27.0.sp,
                 icon: Icon(
                   Icons.book,
-                  //darken the icon if it is selected or else give it a different color
                   color: selectedIndex == 0 ? ColorApp.yellow : Colors.white,
                 ),
               ),
@@ -102,7 +100,6 @@ class _HadithDetailsState extends State<HadithDetails> {
                   color: selectedIndex == 1 ? ColorApp.yellow : Colors.white,
                 ),
               ),
-              //to leave space in between the bottom app bar items and below the FAB
               SizedBox(
                 width: 50.0.w,
               ),

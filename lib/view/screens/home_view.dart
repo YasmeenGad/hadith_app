@@ -73,13 +73,18 @@ class HomeView extends StatelessWidget {
                       secondPathImage: Assets.svgTwoo,
                     )),
                   ),
-                  CustomCard(
-                      cardModel: CustomCardModel(
-                          firstColor: ColorApp.violent,
-                          secondColor: ColorApp.red,
-                          text: TextApp.cardThree,
-                          firstPathImage: Assets.svgSaveInstagram,
-                          secondPathImage: Assets.svgThree))
+                  InkWell(
+                    onTap: () {
+                      GoRouter.of(context).push(RoutesApp.savedHadithView);
+                    },
+                    child: CustomCard(
+                        cardModel: CustomCardModel(
+                            firstColor: ColorApp.violent,
+                            secondColor: ColorApp.red,
+                            text: TextApp.cardThree,
+                            firstPathImage: Assets.svgSaveInstagram,
+                            secondPathImage: Assets.svgThree)),
+                  )
                 ],
               ),
             ],
